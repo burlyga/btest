@@ -10,6 +10,11 @@ AC_PROG_CC
 AC_PROG_MAKE_SET
 
 # Checks for libraries
+AC_CHECK_LIB([pthread], [pthread_create], [PTHREAD=-lpthread])
+AC_SUBST([PTHREAD])
+AC_CHECK_LIB([aio], [io_submit], [LIBAIO=-laio])
+AC_SUBST([LIBAIO])
+
 # Checks for header files
 AC_CHECK_HEADERS([fcntl.h inttypes.h stdint.h stdlib.h string.h sys/ioctl.h sys/mount.h sys/time.h unistd.h])
 AC_CHECK_HEADERS([libaio.h])
